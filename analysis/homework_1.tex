@@ -1,0 +1,110 @@
+\documentclass{article}
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{claim}{Claim}
+
+\title{Analysis Homework 1}
+
+\author{Aidan Ewart}
+
+\begin{document}
+
+\maketitle
+
+\section*{1.1}
+
+\begin{claim}
+    If $x \in \mathbb{Q}$, $x \neq 0$ and $y \notin \mathbb{Q}$ then $xy \notin \mathbb{Q}$.
+\end{claim}
+\begin{proof}
+    Assume $x \in \mathbb{Q}$, $y \notin \mathbb{Q}$ and assume for a contradiction that $xy \in \mathbb{Q}$. As $x \neq 0$, $x^{-1} \in \mathbb{Q}$. As $\mathbb{Q}$ is closed under multiplication, $xyx^{-1} \in \mathbb{Q}$. By the commutativity and associativity of multiplication, the definition of the multiplicative inverse, and the definition of the multiplicative identity, $xyx^{-1} = xx^{-1}y = 1y = y \in \mathbb{Q}$, contradicting our assumption that $y \notin \mathbb{Q}$. Therefore, our initial assumption was wrong, and $xy \notin \mathbb{Q}$.
+\end{proof}
+
+\section*{1.6}
+
+\begin{claim}
+    For $m \in \mathbb{N}$, $\sqrt{m} \in \mathbb{Q}$ iff $\sqrt{m} \in \mathbb{N}$.
+\end{claim}
+\begin{proof}
+    Assume $m \in \mathbb{N}$. Clearly, if $\sqrt{m} \in \mathbb{N}$ then $\sqrt{m} \in \mathbb{Q}$ as $\mathbb{N} \subset \mathbb{Q}$. \\
+    For the other direction, assume $\sqrt{m} \notin \mathbb{N}$ and assume for a contradiction that $\sqrt{m} \in \mathbb{Q}$. We have $\sqrt{m} > 0$, and so there is a $k \in \mathbb{N}$ such that $k < \sqrt{m} < k + 1$ with $1 < k$ as $\sqrt{m} > 0$ and $m \neq 1$ as otherwise $\sqrt{m} \in \mathbb{N}$. \\
+    Set $x := \sqrt{m}$ and $A := \{n : n \in \mathbb{N}, xn \in \mathbb{N}\}$. The set $A$ must be nonempty, as $x \in \mathbb{Q}$ and so we can find some $n \in \mathbb{N}$ such that $xn \in \mathbb{N}$, and so set $q \in A$ to be the greatest lower bound of $A$, as all sets of natural numbers contain a greatest lower bound. \\
+    We set $q_1 := q(x-1)$, and so clearly $q_1 < q$ and $0 < q_1$ as $0 < q(k - 1) < q(x - 1) = q_1$. Then $q_1 x = q(x-1)x = qx^2 - qx = qm - qx$, which is clearly a member of $\mathbb{Z}$. This contradicts our assumption that $q$ was the smallest natural with this property, and so the initial assumption that $\sqrt{m} \in \mathbb{Q}$ was incorrect, and so $\sqrt{m} \notin \mathbb{Q}$.
+\end{proof}
+
+\section*{2.1}
+
+\begin{lem}
+    \label{lem_0_mult}
+
+    For all $x \in \mathbb{R}, 0x = 0$.
+\end{lem}
+
+\begin{proof}
+    By the property of the additive identity, we have $1 + 0 = 1$, and so by multiplying both sides by $x$, and applying the distributivity of multiplication over addition and the property of the multiplicative identity, we have $(1 + 0)x = 1x$ and so $x + 0x = x$. Adding $-x$ to both sides, and applying the associativity and commutativity of addition and the property of the additive inverse, yields $x + 0x + -x = x + -x$ and so $0x = 0$ as required.
+\end{proof}
+
+\begin{lem}
+    \label{lem_minus_1_neg}
+
+    For all $x \in \mathbb{R}$, $-1x = -x$.
+\end{lem}
+
+\begin{proof}
+    By the property of the additive inverse, we have $1 + -1 = 0$, and so by multiplying both sides by $x$, and applying the distributivity of multiplication over addition, yields $(1 + -1)x = 0x$ and so $1x + -1x = 0x$. By the property of the multiplicative identity and Lemma \ref{lem_0_mult}, we have $x + -1x = 0$. Adding $-x$ to both sides, and applying the associativity and commutativity of addition and the property of the additive identity, gives $x + -1x + -x = 0 + -x$ and so $-1x = -x$ as required.
+\end{proof}
+
+\begin{lem}
+    \label{lem_double_neg}
+
+    For all $x \in \mathbb{R}, x = -(-x)$.
+\end{lem}
+
+\begin{proof}
+    By the property of the additive inverse, we have $x + -x = 0$, and so by adding $-(-x)$ to both sides, and applying the associativity and commutativity of addition and the property of the additive inverse, we have $x + -x + -(-x) = 0 + -(-x)$ and so $0 + x = 0 + -(-x)$. By the property of the additive identity, we have $x = -(-x)$ as required.
+\end{proof}
+
+\begin{lem}
+    \label{lem_sq_min_one}
+    
+    We have $(-1)(-1) = 1$.
+\end{lem}
+
+\begin{proof}
+    By the property of the additive inverse, we have $1 + -1 = 0$. Multiplying both sides by $-1$, and applying the distributivity of multiplication over addition and the property of the multiplicative identity, gives $-1(1 + -1) = (-1)0$ and so $-1 + (-1)(-1) = (-1)0$. Applying \ref{lem_0_mult} gives $-1 + (-1)(-1) = 0$. Adding $1$ to both sides, and applying the property of the additive inverse and the additive identity, gives $1 + -1 + (-1)(-1) = 1 + 0$ and so $(-1)(-1) = 1$ as required.
+\end{proof}
+
+\begin{claim}
+    For all $x,y \in \mathbb{R}$ we have $xy = (-x)(-y)$.
+\end{claim}
+
+\begin{proof}
+    By \ref{lem_minus_1_neg} we have $(-1)x(-1)y = (-x)(-y)$. Applying the commutativity and associativity of multiplication, we have $(-1)(-1)xy = (-x)(-y)$. By \ref{lem_sq_min_one} we have $xy = (-x)(-y)$ as required.
+\end{proof}
+
+\begin{claim}
+    For all $x,y,z \in \mathbb{R}$, if $z < 0$ and $x < y$ we have $zx > zy$.
+\end{claim}
+
+\begin{proof}
+    Assuming $z < 0$ and adding $-z$ to both sides, by the compatibility of the order relation with addition, the property of the additive inverse, and the property of the additive identity, we have $z + -z < 0 + -z$ and so $0 < -z$. \\
+    Assuming $x < y$ and adding $-x$ to both sides, by the compatibility of the order relation with addition, the property of the additive inverse, and the property of the additive identity, we have $x + -x < y + -x$ and so $0 < y + -x$. Multiplying both sides by $-z$, by the compatibility of the order relation with multiplication, and the fact that $0 < -z$, we have $0(-z) < -z(y + -x)$. Applying the distributivity of multiplication over addition and \ref{lem_0_mult}, we have $0 < -zy + (-z)(-x)$. By the result of the previous claim, we have $0 < (-z)y + zx$. By \ref{lem_minus_1_neg}, and the commutativity and associativity of multiplication, we have $0 < -1zy + zx$ and so $0 < -(zy) + zx$. Adding $zy$ to both sides by the compatibility of the order relation with addition, we have $zy + 0 < zy + -(zy) + zx$. By the property of the additive identity, and the property of the additive inverse, we have $zy + 0 < 0 + zx$, and so $zy < zx$ as required.
+\end{proof}
+
+\section*{2.3}
+
+\begin{claim}
+    For all $a,b \in \mathbb{R}$, if $(\forall \epsilon > 0, a < b + \epsilon)$ then $a < b$.
+\end{claim}
+
+\begin{proof}
+    We prove the contrapositive. For a given $a,b \in \mathbb{R}$, assume $a > b$ and set $x := a - b$. Then $x > 0$ and $a = b + x$, and so there exists some $\epsilon$ such that $\neg (a < b + \epsilon)$, namely $x$. As $\exists \epsilon > 0, \neg (a < b + \epsilon)$ then $\neg (\forall \epsilon > 0, a < b + \epsilon)$ as required.
+\end{proof}
+
+\end{document}
