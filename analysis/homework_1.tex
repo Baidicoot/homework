@@ -3,6 +3,9 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{cleveref}
+
+\crefname{lem}{Lemma}{Lemmas}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -57,7 +60,7 @@
 \end{lem}
 
 \begin{proof}
-    By the property of the additive inverse, we have $1 + -1 = 0$, and so by multiplying both sides by $x$, and applying the distributivity of multiplication over addition, yields $(1 + -1)x = 0x$ and so $1x + -1x = 0x$. By the property of the multiplicative identity and Lemma \ref{lem_0_mult}, we have $x + -1x = 0$. Adding $-x$ to both sides, and applying the associativity and commutativity of addition and the property of the additive identity, gives $x + -1x + -x = 0 + -x$ and so $-1x = -x$ as required.
+    By the property of the additive inverse, we have $1 + -1 = 0$, and so by multiplying both sides by $x$, and applying the distributivity of multiplication over addition, yields $(1 + -1)x = 0x$ and so $1x + -1x = 0x$. By the property of the multiplicative identity and \cref{lem_0_mult}, we have $x + -1x = 0$. Adding $-x$ to both sides, and applying the associativity and commutativity of addition and the property of the additive identity, gives $x + -1x + -x = 0 + -x$ and so $-1x = -x$ as required.
 \end{proof}
 
 \begin{lem}
@@ -77,7 +80,7 @@
 \end{lem}
 
 \begin{proof}
-    By the property of the additive inverse, we have $1 + -1 = 0$. Multiplying both sides by $-1$, and applying the distributivity of multiplication over addition and the property of the multiplicative identity, gives $-1(1 + -1) = (-1)0$ and so $-1 + (-1)(-1) = (-1)0$. Applying \ref{lem_0_mult} gives $-1 + (-1)(-1) = 0$. Adding $1$ to both sides, and applying the property of the additive inverse and the additive identity, gives $1 + -1 + (-1)(-1) = 1 + 0$ and so $(-1)(-1) = 1$ as required.
+    By the property of the additive inverse, we have $1 + -1 = 0$. Multiplying both sides by $-1$, and applying the distributivity of multiplication over addition and the property of the multiplicative identity, gives $-1(1 + -1) = (-1)0$ and so $-1 + (-1)(-1) = (-1)0$. Applying \cref{lem_0_mult} gives $-1 + (-1)(-1) = 0$. Adding $1$ to both sides, and applying the property of the additive inverse and the additive identity, gives $1 + -1 + (-1)(-1) = 1 + 0$ and so $(-1)(-1) = 1$ as required.
 \end{proof}
 
 \begin{claim}
@@ -85,7 +88,7 @@
 \end{claim}
 
 \begin{proof}
-    By \ref{lem_minus_1_neg} we have $(-1)x(-1)y = (-x)(-y)$. Applying the commutativity and associativity of multiplication, we have $(-1)(-1)xy = (-x)(-y)$. By \ref{lem_sq_min_one} we have $xy = (-x)(-y)$ as required.
+    By \cref{lem_minus_1_neg} we have $(-1)x(-1)y = (-x)(-y)$. Applying the commutativity and associativity of multiplication, we have $(-1)(-1)xy = (-x)(-y)$. By \cref{lem_sq_min_one} we have $xy = (-x)(-y)$ as required.
 \end{proof}
 
 \begin{claim}
@@ -94,7 +97,7 @@
 
 \begin{proof}
     Assuming $z < 0$ and adding $-z$ to both sides, by the compatibility of the order relation with addition, the property of the additive inverse, and the property of the additive identity, we have $z + -z < 0 + -z$ and so $0 < -z$. \\
-    Assuming $x < y$ and adding $-x$ to both sides, by the compatibility of the order relation with addition, the property of the additive inverse, and the property of the additive identity, we have $x + -x < y + -x$ and so $0 < y + -x$. Multiplying both sides by $-z$, by the compatibility of the order relation with multiplication, and the fact that $0 < -z$, we have $0(-z) < -z(y + -x)$. Applying the distributivity of multiplication over addition and \ref{lem_0_mult}, we have $0 < -zy + (-z)(-x)$. By the result of the previous claim, we have $0 < (-z)y + zx$. By \ref{lem_minus_1_neg}, and the commutativity and associativity of multiplication, we have $0 < -1zy + zx$ and so $0 < -(zy) + zx$. Adding $zy$ to both sides by the compatibility of the order relation with addition, we have $zy + 0 < zy + -(zy) + zx$. By the property of the additive identity, and the property of the additive inverse, we have $zy + 0 < 0 + zx$, and so $zy < zx$ as required.
+    Assuming $x < y$ and adding $-x$ to both sides, by the compatibility of the order relation with addition, the property of the additive inverse, and the property of the additive identity, we have $x + -x < y + -x$ and so $0 < y + -x$. Multiplying both sides by $-z$, by the compatibility of the order relation with multiplication, and the fact that $0 < -z$, we have $0(-z) < -z(y + -x)$. Applying the distributivity of multiplication over addition and \cref{lem_0_mult}, we have $0 < -zy + (-z)(-x)$. By the result of the previous claim, we have $0 < (-z)y + zx$. By \cref{lem_minus_1_neg}, and the commutativity and associativity of multiplication, we have $0 < -1zy + zx$ and so $0 < -(zy) + zx$. Adding $zy$ to both sides by the compatibility of the order relation with addition, we have $zy + 0 < zy + -(zy) + zx$. By the property of the additive identity, and the property of the additive inverse, we have $zy + 0 < 0 + zx$, and so $zy < zx$ as required.
 \end{proof}
 
 \section*{2.3}
